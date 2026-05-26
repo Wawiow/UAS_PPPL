@@ -10,3 +10,13 @@ Feature: Pengajuan Kontributor
     And user input alasan "Saya ingin menjadi kontributor"
     And user submit pengajuan
     Then pengajuan berhasil dikirim
+
+  @positive
+  Scenario: Admin menerima permintaan kontributor user
+    Given admin membuka halaman login
+    When admin login dengan email "admin@brida.com" dan password "admin123"
+    And admin klik menu contributor request
+    And admin klik tombol approve
+    And admin input notes
+    And admin klik tombol approve
+    Then user berhasil jadi kontributor
