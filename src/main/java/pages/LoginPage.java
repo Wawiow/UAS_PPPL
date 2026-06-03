@@ -2,37 +2,35 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class LoginPage {
 
-    WebDriver driver;
+    private final WebDriverWait wait;
 
-    By emailField =
-            By.xpath("//input[@placeholder='Email']");
-
-    By passwordField =
-            By.xpath("//input[@placeholder='Password']");
-
-    By loginButton =
-            By.xpath("//button[contains(text(),'Login')]");
+    private final By emailField    = By.xpath("//input[@placeholder='Email']");
+    private final By passwordField = By.xpath("//input[@placeholder='Password']");
+    private final By loginButton   = By.xpath("//button[contains(text(),'Login')]");
 
     public LoginPage(WebDriver driver) {
-
-        this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 
     public void inputEmail(String email) {
-
-        driver.findElement(emailField).sendKeys(email);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(emailField)).sendKeys(email);
     }
 
     public void inputPassword(String password) {
-
-        driver.findElement(passwordField).sendKeys(password);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(passwordField)).sendKeys(password);
     }
 
     public void clickLogin() {
-
-        driver.findElement(loginButton).click();
+        wait.until(ExpectedConditions.elementToBeClickable(loginButton)).click();
+        try {
+            wait.until(d -> !d.getCurrentUrl().contains("/login"));
+        } catch (Exception ignored) {}
     }
 }
