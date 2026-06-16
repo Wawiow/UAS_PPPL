@@ -1,22 +1,17 @@
-@PengajuanKontributor
-Feature: Pengajuan Kontributor
+@request
+Feature: Request Contributor
+  Scenario: BVA - alasan 9 karakter
+    Given pengguna sudah login menggunakan email "newuser3@gmail.com" dan password "user2345"
+    When pengguna menekan tombol jadi kontributor
+    And pengguna membuka form pengajuan kontributor
+    And pengguna mengisi alasan kontributor "123456789"
+    Then tombol ajukan permintaan tidak aktif
 
-  @positive
-  Scenario: User berhasil mengajukan kontributor
-    Given user membuka halaman login
-    When user login dengan email "newuser@gmail.com" dan password "user1234"
-    And user klik menu jadi kontributor
-    And user klik tombol lanjut isi form
-    And user input alasan "Saya ingin menjadi kontributor"
-    And user submit pengajuan
-    Then pengajuan berhasil dikirim
+  Scenario: EP - Pengajuan contributor berhasil
+    Given pengguna sudah login menggunakan email "newuser@gmail.com" dan password "user1234"
+    When pengguna menekan tombol jadi kontributor
+    And pengguna membuka form pengajuan kontributor
+    And pengguna mengisi alasan kontributor "Saya ingin menjadi kontributor karena ingin berbagi karya ilmiah"
+    And pengguna mengajukan permintaan kontributor
+    Then permintaan kontributor berhasil dikirim
 
-  @positive
-  Scenario: Admin menerima permintaan kontributor user
-    Given admin membuka halaman login
-    When admin login dengan email "admin@brida.com" dan password "admin123"
-    And admin klik menu contributor request
-    And admin klik tombol approve
-    And admin input notes
-    And admin klik tombol approve
-    Then user berhasil jadi kontributor
