@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.example.SeleniumPageTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.038 s <<< FAILURE! - in com.example.SeleniumPageTest
+Logins  Time elapsed: 0.027 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.example.SeleniumPageClass.navigate()" because "this.loginpage" is null
+	at com.example.SeleniumPageTest.Logins(SeleniumPageTest.java:13)
+

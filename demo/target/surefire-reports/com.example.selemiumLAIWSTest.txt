@@ -1,0 +1,18 @@
+-------------------------------------------------------------------------------
+Test set: com.example.selemiumLAIWSTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 16.746 s <<< FAILURE! - in com.example.selemiumLAIWSTest
+HoverTest  Time elapsed: 16.714 s  <<< ERROR!
+org.openqa.selenium.InvalidSelectorException: 
+invalid selector: Unable to locate an element with the xpath expression //a[contains(@href, /users/1)]/ancestor::img[@src='/img/avatar-blank.jpg'] because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '//a[contains(@href, /users/1)]/ancestor::img[@src='/img/avatar-blank.jpg']' is not a valid XPath expression.
+  (Session info: chrome=148.0.7778.168)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidselectorexception
+Build info: version: '4.43.0', revision: 'dd0f534'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '25.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [69ebe66cf8a1ba344ae1b7dba3703dff, findElement {value=//a[contains(@href, /users/1)]/ancestor::img[@src='/img/avatar-blank.jpg'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.168, chrome: {chromedriverVersion: 148.0.7778.167 (65db666ac2c..., userDataDir: C:\Users\FDEE\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54826}, goog:processID: 7484, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54826/devtoo..., se:cdpVersion: 148.0.7778.168, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 69ebe66cf8a1ba344ae1b7dba3703dff
+	at com.example.selemiumLAIWSTest.HoverTest(selemiumLAIWSTest.java:68)
+

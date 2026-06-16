@@ -1,0 +1,30 @@
+-------------------------------------------------------------------------------
+Test set: com.example.SeleniumTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 11.676 s <<< FAILURE! - in com.example.SeleniumTest
+LoginTest  Time elapsed: 2.754 s  <<< ERROR!
+org.openqa.selenium.WebDriverException: 
+target frame detached
+  (failed to check if window was closed: disconnected: Unable to receive message from renderer)
+  (Session info: chrome=147.0.7727.102) (error code: "target frame detached")
+Build info: version: '4.43.0', revision: 'dd0f534'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '25.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [5cf74bb15fb3a19d5ae98b2131a35a56, get {url=https://www.saucedemo.com/}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.102, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Users\FDEE\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53550}, goog:processID: 13128, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53550/devtoo..., se:cdpVersion: 147.0.7727.102, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 5cf74bb15fb3a19d5ae98b2131a35a56
+	at com.example.SeleniumTest.LoginTest(SeleniumTest.java:33)
+
+FailLoginTest  Time elapsed: 4.618 s  <<< ERROR!
+org.openqa.selenium.NoSuchSessionException: 
+invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=147.0.7727.102)
+Build info: version: '4.43.0', revision: 'dd0f534'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '25.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [98e59212afea7b24ea394bb484bc52ee, findElement {using=id, value=password}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.102, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Users\FDEE\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53117}, goog:processID: 2496, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53117/devtoo..., se:cdpVersion: 147.0.7727.102, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 98e59212afea7b24ea394bb484bc52ee
+	at com.example.SeleniumTest.FailLoginTest(SeleniumTest.java:60)
+
