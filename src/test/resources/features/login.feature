@@ -1,8 +1,10 @@
+@ui @login
 Feature: Login pengguna
 
   Background:
 	Given pengguna sudah memiliki akun dengan email "mohammadavirzaradyatanza@mail.ugm.ac.id" dan password "avirza123"
 
+  @smoke @positive
   Scenario: Login berhasil dengan kredensial valid
 	Given pengguna berada di halaman login
 	When pengguna memasukkan email "mohammadavirzaradyatanza@mail.ugm.ac.id" ke dalam field email
@@ -12,6 +14,7 @@ Feature: Login pengguna
 
 
   # login gagal
+  @negative
   Scenario: Login gagal dengan kredensial tidak valid
 	Given pengguna berada di halaman login
 	When pengguna memasukkan email "mohammadavirzaradyatanza@mail.ugm.ac.id" ke dalam field email
