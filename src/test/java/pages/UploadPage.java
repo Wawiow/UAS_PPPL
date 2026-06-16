@@ -29,8 +29,6 @@ public class UploadPage {
         } catch (Exception ignored) {}
     }
 
-    // ─── Navigasi ────────────────────────────────────────────────────────────────
-
     public void clickDashboardContributor() {
         WebElement el = wait.until(ExpectedConditions.presenceOfElementLocated(
                 By.xpath("//span[normalize-space()='Dashboard Kontributor']")));
@@ -64,7 +62,7 @@ public class UploadPage {
         }
     }
 
-    // ─── Step 1: Metadata ────────────────────────────────────────────────────────
+
 
     public void fillTitle(String title) {
         WebElement input = wait.until(ExpectedConditions.visibilityOfElementLocated(
@@ -146,7 +144,7 @@ public class UploadPage {
         selectFirstUniversity();
     }
 
-    // ─── Navigasi wizard ─────────────────────────────────────────────────────────
+
 
     public void clickLanjut() {
         WebElement el = wait.until(ExpectedConditions.presenceOfElementLocated(
@@ -162,14 +160,13 @@ public class UploadPage {
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", el);
     }
 
-    // ─── Step 3: Upload file ─────────────────────────────────────────────────────
+
 
     public void uploadPdf(String fileName) {
         String path = Paths.get(System.getProperty("user.dir"),
                         "src", "test", "resources", "files", fileName)
                 .toAbsolutePath().toString();
 
-        // Coba kedua selector — dengan dan tanpa @not(@multiple)
         WebElement fileInput = null;
         try {
             fileInput = wait.until(ExpectedConditions.presenceOfElementLocated(
@@ -185,7 +182,7 @@ public class UploadPage {
         fileInput.sendKeys(path);
     }
 
-    // ─── Step 4: Lisensi ─────────────────────────────────────────────────────────
+
 
     public void agreeAllStatements() {
         List<WebElement> checkboxes = driver.findElements(
@@ -196,9 +193,6 @@ public class UploadPage {
             }
         }
     }
-
-    // ─── Step 5: Hasil ───────────────────────────────────────────────────────────
-
     public boolean isUploadSuccessful() {
         try {
             return wait.until(ExpectedConditions.visibilityOfElementLocated(
