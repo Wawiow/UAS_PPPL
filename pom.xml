@@ -107,6 +107,10 @@
                     <includes>
                         <include>**/runner/**/*.java</include>
                     </includes>
+                    <excludes>
+                        <!-- Suite khusus, hanya dijalankan eksplisit via -Dtest=... agar tidak dobel dengan TestRunner -->
+                        <exclude>**/runner/DownloadRequestTestSuite.java</exclude>
+                    </excludes>
                 </configuration>
             </plugin>
 
