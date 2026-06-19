@@ -12,6 +12,7 @@ Pengajuan Contributor
 Persetujuan Contributor oleh Admin
 Penolakan Contributor oleh Admin
 Upload Dokumen oleh Contributor
+Permohonan Unduh Dokumen
 
 Metode pengujian yang digunakan adalah Black Box Testing dengan pendekatan Equivalence Partitioning (EP) dan Boundary Value Analysis (BVA) yang diimplementasikan menggunakan BDD (Behavior Driven Development) dengan framework Cucumber dan Selenium WebDriver.
 
@@ -47,8 +48,23 @@ Deskripsi : Test suite ini digunakan untuk memverifikasi proses penolakan permin
 | REJECT-02 | Admin menolak permintaan contributor tanpa alasan        | Tombol reject tidak aktif               |
 
 
+Nama Test Suite : Permohonan Unduh Dokumen
+
+Deskripsi : Test suite ini digunakan untuk memverifikasi proses pengajuan permohonan unduh dokumen oleh pengunjung dari halaman katalog, termasuk persetujuan oleh pemilik dokumen dan notifikasi email ke pemohon.
+
+| ID       | Scenario                                                          | Expected Result                                  |
+| -------- | ------------------------------------------------------------------ | ------------------------------------------------- |
+| TC-PU-01 | Permohonan unduh dengan data lengkap dan valid                     | Permohonan berhasil dikirim dengan pesan sukses    |
+| TC-PU-02 | Permohonan gagal: email/nama/instansi/keperluan tidak valid         | Muncul pesan validasi error                        |
+| TC-PU-06 | Permohonan dengan nilai field di batas bawah minimum yang valid     | Sistem menampilkan respons permohonan (diterima)   |
+| TC-PU-07 | Permohonan gagal: email tanpa TLD (tepat di bawah batas valid)      | Muncul pesan validasi error                        |
+| TC-PU-08 | Permohonan gagal: semua field dikosongkan                          | Muncul pesan validasi error                        |
+| TC-PU-09 | Pemilik dokumen menyetujui permohonan melalui email Gmail           | Halaman konfirmasi persetujuan ditampilkan         |
+| TC-PU-10 | Pemohon menerima email notifikasi persetujuan dari eLibrary         | Email konfirmasi unduh ditampilkan                 |
+
+
 pembagian tugas:
 Sedayu: membuat test untuk request Contributor
-Ahsani
+Ahsani: membuat test untuk Request Unduh Dokumen
 Farrel
 Avirza
