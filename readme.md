@@ -21,30 +21,30 @@ Nama Test Suite : Pengajuan Menjadi Kontributor
 
 Deskripsi: Test suite ini digunakan untuk memverifikasi proses pengajuan perubahan peran pengguna menjadi Contributor melalui form pengajuan contributor.
 
-| ID     | Scenario                       | Metode      | Expected Result                      |
-| ------ | ------------------------------ | ----------- | ------------------------------------ |
-| REQ-01 | Pengajuan contributor berhasil | EP Positive | Request berhasil dikirim             |
-| REQ-02 | Alasan kosong                  | EP Negative | Tombol Ajukan Permintaan tidak aktif |
-| REQ-03 | Alasan 9 karakter              | BVA Invalid | Tombol Ajukan Permintaan tidak aktif |
+| ID     | Scenario                       | Expected Result                      |
+| ------ | ------------------------------ |--------------------------------------|
+| REQ-01 | Pengajuan contributor berhasil | Request berhasil dikirim             |
+| REQ-02 | Alasan kosong                  | Tombol Ajukan Permintaan tidak aktif |
+| REQ-03 | Alasan 9 karakter              | Tombol Ajukan Permintaan tidak aktif |
 
 
 Nama Test Suite : Approve Contributor Request
 
 Deskripsi : Test suite ini digunakan untuk memverifikasi proses persetujuan permintaan contributor oleh Administrator.
 
-| ID         | Scenario                                                   | Jenis Test    | Expected Result                                 |
-| ---------- | ---------------------------------------------------------- | ------------- | ----------------------------------------------- |
-| APPROVE-01 | Admin menyetujui permintaan contributor dengan notes valid | Positive Test | Status request berubah menjadi Approved         |
+| ID         | Scenario                                                   | Expected Result                                 |
+| ---------- | ---------------------------------------------------------- | ----------------------------------------------- |
+| APPROVE-01 | Admin menyetujui permintaan contributor dengan notes valid | Status request berubah menjadi Approved         |
 
 
 Nama Test Suite : Reject Contributor Request
 
 Deskripsi : Test suite ini digunakan untuk memverifikasi proses penolakan permintaan contributor oleh Administrator.
 
-| ID        | Scenario                                                 | Jenis Test    | Expected Result                         |
-| --------- | -------------------------------------------------------- | ------------- | --------------------------------------- |
-| REJECT-01 | Admin menolak permintaan contributor dengan alasan valid | Positive Test | Status request berubah menjadi Rejected |
-| REJECT-02 | Admin menolak permintaan contributor tanpa alasan        | Negative Test | Tombol reject tidak aktif               |
+| ID        | Scenario                                                 | Expected Result                         |
+| --------- | -------------------------------------------------------- | --------------------------------------- |
+| REJECT-01 | Admin menolak permintaan contributor dengan alasan valid | Status request berubah menjadi Rejected |
+| REJECT-02 | Admin menolak permintaan contributor tanpa alasan        | Tombol reject tidak aktif               |
 
 
 pembagian tugas:
