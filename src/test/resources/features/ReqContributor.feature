@@ -1,5 +1,7 @@
 @request
 Feature: Request Contributor
+
+  @requestNegative
   Scenario: BVA - alasan 9 karakter
     Given pengguna sudah login menggunakan email "newuser3@gmail.com" dan password "user2345"
     When pengguna menekan tombol jadi kontributor
@@ -7,6 +9,14 @@ Feature: Request Contributor
     And pengguna mengisi alasan kontributor "123456789"
     Then tombol ajukan permintaan tidak aktif
 
+  Scenario: EP - alasan kosong
+    Given pengguna sudah login menggunakan email "newuser3@gmail.com" dan password "user2345"
+    When pengguna menekan tombol jadi kontributor
+    And pengguna membuka form pengajuan kontributor
+    And pengguna mengisi alasan kontributor ""
+    Then tombol ajukan permintaan tidak aktif
+
+    @requestPositive
   Scenario: EP - Pengajuan contributor berhasil
     Given pengguna sudah login menggunakan email "newuser@gmail.com" dan password "user1234"
     When pengguna menekan tombol jadi kontributor

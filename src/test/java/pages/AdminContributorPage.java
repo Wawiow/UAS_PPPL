@@ -16,7 +16,7 @@ public class AdminContributorPage {
 
     public AdminContributorPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 
     public void openContributorRequest() {
@@ -29,6 +29,8 @@ public class AdminContributorPage {
         ((JavascriptExecutor) driver)
                 .executeScript("arguments[0].click();", menu);
     }
+
+    // ================= APPROVE =================
 
     public void clickApproveRequest() {
 
@@ -56,7 +58,7 @@ public class AdminContributorPage {
 
         WebElement approveBtn = wait.until(
                 ExpectedConditions.elementToBeClickable(
-                        By.xpath("//textarea[@placeholder='Add any notes...']/ancestor::*[contains(@class,'fixed')]//button[contains(.,'Approve')]")
+                        By.xpath("(//button[normalize-space()='Approve'])[2]")
                 ));
 
         ((JavascriptExecutor) driver)
@@ -67,12 +69,106 @@ public class AdminContributorPage {
         try {
             return wait.until(
                     ExpectedConditions.visibilityOfElementLocated(
-                            By.xpath("//*[contains(text(),'approved') or contains(text(),'Approved') or contains(text(),'completed')]")
+                            By.xpath("//*[contains(text(),'Approved') or contains(text(),'approved')]")
                     )
             ).isDisplayed();
 
         } catch (Exception e) {
             return false;
         }
+    }
+
+    // ================= REJECT =================
+
+    public void clickRejectRequest() {
+
+        System.out.println("Klik reject pertama");
+
+        WebElement reject = wait.until(
+                ExpectedConditions.elementToBeClickable(
+                        By.xpath("(//button[normalize-space()='Reject'])[1]")
+                ));
+
+        ((JavascriptExecutor) driver)
+                .executeScript("arguments[0].click();", reject);
+
+        System.out.println("Modal reject terbuka");
+    }
+
+    public void inputRejectReason(String reason) {
+
+        WebElement textarea = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(
+                        By.xpath("//textarea[@placeholder='Please provide a reason for rejection...']")
+                ));
+
+        textarea.clear();
+        textarea.sendKeys(reason);
+
+        // Trigger event Vue
+        ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].dispatchEvent(new Event('input', {bubbles:true}));",
+                textarea
+        );
+
+        ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].dispatchEvent(new Event('change', {bubbles:true}));",
+                textarea
+        );
+
+        System.out.println("Isi textarea = " + textarea.getAttribute("value"));
+    }
+
+    public void confirmReject() {
+
+        WebElement rejectBtn = wait.until(
+                ExpectedConditions.presenceOfElementLocated(
+                        By.xpath("//button[@class='flex-1 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:bg-gray-400 transition']")
+                ));
+
+        wait.until(driver -> rejectBtn.isEnabled());
+
+        System.out.println("Button enabled = " + rejectBtn.isEnabled());
+
+        ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].scrollIntoView(true);",
+                rejectBtn
+        );
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].click();",
+                rejectBtn
+        );
+
+        System.out.println("Reject clicked");
+    }
+
+    public boolean isRejectSuccess() {
+        try {
+            return wait.until(
+                    ExpectedConditions.visibilityOfElementLocated(
+                            By.xpath("//*[contains(text(),'Rejected') or contains(text(),'rejected')]")
+                    )
+            ).isDisplayed();
+
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean isRejectButtonDisabled() {
+
+        WebElement rejectBtn = wait.until(
+                ExpectedConditions.presenceOfElementLocated(
+                        By.xpath("(//button[normalize-space()='Reject'])[2]")
+                ));
+
+        return !rejectBtn.isEnabled();
     }
 }

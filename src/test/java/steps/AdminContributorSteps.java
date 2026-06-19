@@ -39,4 +39,35 @@ public class AdminContributorSteps {
                 "Request contributor tidak berhasil disetujui"
         );
     }
+
+    @And("admin memilih reject")
+    public void adminMemilihReject() {
+        adminPage().clickRejectRequest();
+    }
+
+    @And("admin mengisi alasan reject {string}")
+    public void adminMengisiAlasanReject(String alasan) {
+        adminPage().inputRejectReason(alasan);
+    }
+
+    @And("admin mengkonfirmasi reject")
+    public void adminMengkonfirmasiReject() {
+        adminPage().confirmReject();
+    }
+
+    @Then("request contributor berhasil ditolak")
+    public void requestContributorBerhasilDitolak() {
+        assertTrue(
+                adminPage().isRejectSuccess(),
+                "Request contributor tidak berhasil ditolak"
+        );
+    }
+
+    @Then("tombol reject tidak aktif")
+    public void tombolRejectTidakAktif() {
+        assertTrue(
+                adminPage().isRejectButtonDisabled(),
+                "Tombol reject seharusnya tidak aktif"
+        );
+    }
 }
